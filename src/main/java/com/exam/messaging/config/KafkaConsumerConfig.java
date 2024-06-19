@@ -19,7 +19,7 @@ import static com.exam.messaging.constants.Constants.NOTIFICATION_TOPIC_GROUP_ID
 
 @Slf4j
 @Configuration
-public class ConsumerConfig {
+public class KafkaConsumerConfig {
 
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;

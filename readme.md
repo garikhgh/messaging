@@ -1,5 +1,5 @@
 ## Application Description
-#### The application gets notifications via rest api and from external Python producer then redirects to a kafka producer.
+#### The application gets notifications via rest api and from external Python producer then redirects to a kafka broker.
 #### Next, the application kafka listener receives the notifications and stores them in PostgresSQL
 
 #### Example of a notification
@@ -21,7 +21,7 @@ $ cd ./docker/
 $ docker-compose up -d
 ```
 
-### Stop running containers and remove the app image.
+### Stop running containers and remove the app docker image.
 ```bash
 $ cd ./docker/
 $ docker-compose down

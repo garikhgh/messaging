@@ -17,7 +17,7 @@ public class NotificationService {
         NotificationEntity savedNotification = notificationRepository.save(notification);
         log.info("New Notification is saved with {} id", notification.getId());
     }
-    public long geNotificationQount() {
+    public long geNotificationCount() {
         return notificationRepository.count();
     }
 
