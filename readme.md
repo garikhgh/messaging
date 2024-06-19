@@ -25,7 +25,7 @@ $ docker-compose up -d
 ```bash
 $ cd ./docker/
 $ docker-compose down
-$ docker rmi -f $(docker images 'docker-messaging' -a -q)
+$ docker rmi -f $(docker images 'polixis-messaging' -a -q)
 ```
 
 ## Check if the notifications are created
