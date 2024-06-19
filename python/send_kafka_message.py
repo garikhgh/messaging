@@ -20,11 +20,11 @@ class SendKafkaMessage():
         self.producer.flush()
 
     def send_message(self):
-        str_notificatoin = str(uuid.uuid4());
+        str_notificatoin = str(uuid.uuid4())
         message = {"notification": "simple notification " + str_notificatoin}
         self.producer.produce(self.topic, key="consuming", value=json.dumps(message))
         self.on_stop()
-        print("New notfification is send ", str_notificatoin)
+        print("A new notification is sent ", str_notificatoin)
 
     def teardown(self):
         self.producer.flush()

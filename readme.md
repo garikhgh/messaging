@@ -1,11 +1,11 @@
 ## Application Description
-#### The application gets notifications via rest api and from external python producer then redirects to a kafka producer.
+#### The application gets notifications via rest api and from external Python producer then redirects to a kafka producer.
 #### Next, the application kafka listener receives the notifications and stores them in PostgresSQL
 
 #### Example of a notification
 ```json
 {
-  "description": "A simple notification"
+  "notification": "A simple notification"
 }
 ```
 
@@ -15,13 +15,13 @@
 $ ./gradlew clean build
 ```
 
-Start the project, run the bellow command:
+### Start the project, run the bellow command:
 ```bash
 $ cd ./docker/
 $ docker-compose up -d
 ```
 
-Stop the running Docker containers and remove the app image.
+### Stop running containers and remove the app image.
 ```bash
 $ cd ./docker/
 $ docker-compose down
@@ -30,10 +30,17 @@ $ docker rmi -f $(docker images 'docker-messaging' -a -q)
 
 ## Check if the notifications are created
 ### On Linux Run
-#### wait for 20 seconds in order to establish kafka connection
-## Create a notification
+#### Please wait a few seconds to establish a connection with Kafka broker.
+## Create a notification via rest api. 
 ```bash
 $ curl  -X POST http://localhost:8081/api/v1/notification -H "Content-Type: application/json" -d "{\"notification\":\"A simple notification\"}'"
+```
+
+## Additionally, you can send notification from external producer.
+### if you have Python installed then you can run the bellow code, it sends 100 notifications to the broker.
+```bash
+$ cd ./python/
+$ python3 send_kafka_message.py
 ```
 ## Get all created notifications
 ```bash
