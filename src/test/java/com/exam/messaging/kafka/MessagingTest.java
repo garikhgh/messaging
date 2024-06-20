@@ -27,9 +27,6 @@ public class MessagingTest {
     private NotificationRepository notificationRepository;
 
     @Autowired
-    private Consumer consumer;
-
-    @Autowired
     private Producer producer;
 
 
