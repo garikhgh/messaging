@@ -8,14 +8,11 @@ import com.exam.messaging.repository.NotificationRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
 
-import java.io.Serializable;
 import java.util.List;
 
-import static com.exam.messaging.constants.Constants.NOTIFICATION_TOPIC;
 import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,9 +22,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
 public class MessagingTest {
 
-
-    @Autowired
-    private KafkaTemplate<String, Serializable> kafkaTemplate;
 
     @Autowired
     private NotificationRepository notificationRepository;
@@ -46,7 +40,6 @@ public class MessagingTest {
 
         sleep(3000); // wait connection to be established
         producer.sendNotification(notification);
-        kafkaTemplate.send(NOTIFICATION_TOPIC, notification);
         sleep(4000);
         List<NotificationEntity> all = notificationRepository.findAll();
 
