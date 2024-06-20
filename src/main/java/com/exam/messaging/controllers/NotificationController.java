@@ -29,6 +29,6 @@ public class NotificationController {
     @GetMapping("/notification")
     public ResponseEntity<String> getAllNotifications() {
         long notificationCount = notificationService.geNotificationCount();
-        return ResponseEntity.ok("Total notifications= " + notificationCount);
+        return ResponseEntity.ok("Total notifications= " + notificationCount + "\n");
     }
 }

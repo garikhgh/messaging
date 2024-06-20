@@ -44,7 +44,7 @@ public class MessagingTest {
         NotificationDto notification = new NotificationDto();
         notification.setNotification("test notification");
 
-        sleep(3000);
+        sleep(3000); // wait connection to be established
         producer.sendNotification(notification);
         kafkaTemplate.send(NOTIFICATION_TOPIC, notification);
         sleep(4000);

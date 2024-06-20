@@ -26,6 +26,8 @@ $ docker-compose up -d
 $ cd ./docker/
 $ docker-compose down
 $ docker rmi -f $(docker images 'polixis-messaging' -a -q)
+#$ docker rmi -f $(docker images 'bitnami/kafka' -a -q)
+#$ docker rmi -f $(docker images 'timescale/timescaledb' -a -q)
 ```
 
 ## Check if the notifications are created
@@ -38,6 +40,7 @@ $ curl  -X POST http://localhost:8081/api/v1/notification -H "Content-Type: appl
 
 ## Additionally, you can send notification from external producer.
 ### if you have Python installed then you can run the bellow code, it sends 100 notifications to the broker.
+### make sure if the appropriate packages are installed (a.g. confluent kafka).
 ```bash
 $ cd ./python/
 $ python3 send_kafka_message.py
@@ -51,7 +54,7 @@ $ curl  -X GET http://localhost:8081/api/v1/notification -H "Content-Type: appli
 curl  -X GET localhost:8081/notification -H "Content-Type: application/json"
 ```
 
-## The above request should return response like below
+## The above request should return response like below (for one record)
 ```json
 {
   "_embedded" : {

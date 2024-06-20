@@ -14,12 +14,12 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.hamcrest.Matchers.is;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(NotificationController.class)
@@ -60,8 +60,10 @@ class NotificationControllerTest {
         long count = 1;
         Mockito.when(notificationService.geNotificationCount()).thenReturn(count);
 
-        mockMvc.perform(get("/api/v1/notification")
+        MvcResult result = mockMvc.perform(get("/api/v1/notification")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk()).andReturn();
+        String contentAsString = result.getResponse().getContentAsString();
+        assertEquals(contentAsString, "Total notifications= 1\n");
     }
 }

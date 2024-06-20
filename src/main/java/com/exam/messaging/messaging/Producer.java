@@ -25,11 +25,13 @@ public class Producer {
         kafkaTemplate.setProducerListener(new ProducerListener<String, Serializable>() {
             @Override
             public void onSuccess(ProducerRecord<String, Serializable> producerRecord, RecordMetadata recordMetadata) {
+                // here could be other handling approach to act on success
                 log.info("Message is sent with Key {}", producerRecord.value());
             }
 
             @Override
             public void onError(ProducerRecord<String, Serializable> producerRecord, RecordMetadata recordMetadata, Exception exception) {
+                // here could be other handling approach to act on error
                 log.error("Message with key {} is not send", producerRecord.value());
             }
         });
