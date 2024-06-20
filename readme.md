@@ -26,8 +26,8 @@ $ docker-compose up -d
 $ cd ./docker/
 $ docker-compose down
 $ docker rmi -f $(docker images 'polixis-messaging' -a -q)
-#$ docker rmi -f $(docker images 'bitnami/kafka' -a -q)
-#$ docker rmi -f $(docker images 'timescale/timescaledb' -a -q)
+$ docker rmi -f $(docker images 'bitnami/kafka' -a -q)
+$ docker rmi -f $(docker images 'timescale/timescaledb' -a -q)
 ```
 
 ## Check if the notifications are created
