@@ -1,6 +1,6 @@
 package com.exam.messaging.constants;
 
-import com.exam.messaging.exception.NotAllowedInstanceCreationException;
+import com.exam.messaging.exceptions.NotAllowedInstanceCreationException;
 
 public class Constants {
 
