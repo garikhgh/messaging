@@ -1,7 +1,14 @@
 ## Application Description
 #### The application gets notifications via rest api and from external Python producer then redirects to a kafka broker.
 #### Next, the application kafka listener receives the notifications and stores them in PostgresSQL
-
+### Tech Stack
+#### JDK corretto-17
+#### Gradle 8.8
+#### PostgresSQL latest-pg16
+#### Kafka bitnami/kafka latest
+#### Docker/Docker-Compose
+#### Python 3.10.12/Confluent-Kafka
+###
 #### Example of a notification
 ```json
 {
