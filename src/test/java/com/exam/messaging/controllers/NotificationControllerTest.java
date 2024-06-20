@@ -1,8 +1,6 @@
 package com.exam.messaging.controllers;
 
 import com.exam.messaging.domain.NotificationEntity;
-import com.exam.messaging.messaging.Consumer;
-import com.exam.messaging.messaging.Producer;
 import com.exam.messaging.services.NotificationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -31,12 +29,6 @@ class NotificationControllerTest {
     @MockBean
     private NotificationService notificationService;
 
-    @MockBean
-    private Producer producer;
-
-    @MockBean
-    private Consumer consumer;
-
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -49,8 +41,6 @@ class NotificationControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(notification)))
                 .andExpect(status().is2xxSuccessful());
-
-
     }
 
     @Test
