@@ -9,7 +9,7 @@
 #### Docker/Docker-Compose
 #### Python 3.10.12/Confluent-Kafka
 ###
-#### Example of a notification
+## Example of a notification
 ```json
 {
   "notification": "A simple notification"
