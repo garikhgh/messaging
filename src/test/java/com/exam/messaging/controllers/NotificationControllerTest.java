@@ -46,8 +46,8 @@ class NotificationControllerTest {
         notification.setNotification("test notification");
 
         mockMvc.perform(post("/api/v1/notification")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(notification)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(notification)))
                 .andExpect(status().is2xxSuccessful());
 
 

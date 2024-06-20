@@ -25,6 +25,7 @@ public class NotificationController {
         log.info("Notification is saved {}", notificationDto.toString());
         return ResponseEntity.accepted().build();
     }
+
     // for testing purposes
     @GetMapping("/notification")
     public ResponseEntity<String> getAllNotifications() {
