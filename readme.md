@@ -21,7 +21,7 @@ $ cd ./docker/
 $ docker-compose up -d
 ```
 
-### Stop running containers and remove the app docker image.
+### Stop running containers and remove the app docker images.
 ```bash
 $ cd ./docker/
 $ docker-compose down
@@ -40,7 +40,7 @@ $ curl  -X POST http://localhost:8081/api/v1/notification -H "Content-Type: appl
 
 ## Additionally, you can send notification from external producer.
 ### if you have Python installed then you can run the bellow code, it sends 100 notifications to the broker.
-### make sure if the appropriate packages are installed (a.g. confluent kafka).
+### make sure if the appropriate packages are installed (e.g. confluent kafka).
 ```bash
 $ cd ./python/
 $ python3 send_kafka_message.py
